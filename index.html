@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>拨打电话</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      #box {
+        margin-top: 120px;
+        text-align: center;
+      }
+      #box > a {
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #41ae02;
+        padding: 8px 16px;
+        border-radius: 8px;
+        letter-spacing: 2px;
+      }
+    </style>
   </head>
   <body>
-    <a href="tel:19306570929">拨打电话</a>
+    <div id="box"></div>
+    <script>
+      window.onload = function () {
+        var box = document.getElementById('box');
+        var a = document.createElement('a');
+        var tel = location.href.split('tel=')[1];
+        if (tel) {
+          a.href = 'tel:' + tel;
+          a.innerText = '拨打电话';
+          box.appendChild(a);
+        }
+      };
+    </script>
   </body>
 </html>
